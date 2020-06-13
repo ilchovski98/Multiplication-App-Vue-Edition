@@ -6,6 +6,7 @@
 
 <script>
 import MultiplicationTemplate from './components/multiplicationTemplate'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default {
   name: 'App',

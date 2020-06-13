@@ -1,9 +1,9 @@
 <template>
-  <div>
-      <div>
+  <div id="main">
+      <div id="content">
           <p>{{ number1 }} X {{ number2 }} =</p>
           <input type="number">
-          <button @click="randomFunction">Click</button>
+          <button id="btns" class="btn btn-primary" @click="randomFunction">Click</button>
       </div>
   </div>
 </template>
@@ -33,4 +33,44 @@ export default {
 
 <style>
 
+#main {
+    background-color: grey;
+    width: 600px;
+    height: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    display:inline-block;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#content {
+    margin-top: 35px;
+    font-size: 25px;
+}
+
+p {
+    display:inline-block;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 10px;
+}
+
+input {
+    display:inline-block;
+    height: 28px;
+    font-size: 25px;
+    width: 100px; 
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#btns {
+    margin-left: 10px;
+}
 </style>
