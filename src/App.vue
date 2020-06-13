@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <multiplication-template></multiplication-template>
+    <multiplication-template class="space"></multiplication-template>
   </div>
 </template>
 
@@ -24,5 +24,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.space {
+  margin-top: 20px;
 }
 </style>

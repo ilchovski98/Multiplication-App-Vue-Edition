@@ -1,9 +1,10 @@
 <template>
-  <div id="main">
+  <div id="main" :class="{green: correct, red: !correct}">
       <div id="content">
           <p>{{ number1 }} X {{ number2 }} =</p>
-          <input type="number">
-          <button id="btns" class="btn btn-primary" @click="randomFunction">Click</button>
+          <input type="number" v-model="enteredNumber">
+          <button id="btns" class="btn btn-primary" @click="check">Click</button>
+          <p @click="randomFunction">Result: {{ result }}</p>
       </div>
   </div>
 </template>
@@ -15,7 +16,10 @@ export default {
     data() {
         return {
             number1: 0,
-            number2: 0
+            number2: 0,
+            enteredNumber: 0,
+            result: undefined,
+            correct: false
         }
     },
     methods: {
@@ -26,6 +30,25 @@ export default {
             this.number2 = num2Random;
             console.log(this.number1, this.number2);
             
+        },
+        check() {
+            const vm = this;
+            const calcResult = vm.number1 * vm.number2;
+            if (vm.enteredNumber == calcResult) {
+                vm.correct = true
+            } else {
+                vm.correct = false
+            }
+            console.log(vm.enteredNumber);
+            console.log(vm.correct);
+            
+        }
+    },
+    computed: {
+        colorful() {
+            return {
+                backgroundColor: this
+            }
         }
     }
 }
@@ -34,7 +57,6 @@ export default {
 <style>
 
 #main {
-    background-color: grey;
     width: 600px;
     height: 110px;
     margin-left: auto;
@@ -72,5 +94,13 @@ input::-webkit-inner-spin-button {
 
 #btns {
     margin-left: 10px;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: greenyellow;
 }
 </style>
