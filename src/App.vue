@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <multiplication-template class="space"></multiplication-template>
+    <div v-for="index in count" :key="index">
+      <multiplication-template :addComponent="addComponent" :count="count" class="space"></multiplication-template>
+    </div>
   </div>
 </template>
 
@@ -12,6 +14,16 @@ export default {
   name: 'App',
   components: {
     MultiplicationTemplate
+  },
+  data() {
+    return {
+      count: 1
+    }
+  },
+  methods: {
+    addComponent() {
+      this.count += 1;
+    }
   }
 }
 </script>

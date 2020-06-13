@@ -3,8 +3,7 @@
       <div id="content">
           <p>{{ number1 }} X {{ number2 }} =</p>
           <input type="number" v-model="enteredNumber">
-          <button id="btns" class="btn btn-primary" @click="check">Click</button>
-          <p @click="randomFunction">Result: {{ result }}</p>
+          <button id="btns" class="btn btn-primary" @click="check">Submit</button>
       </div>
   </div>
 </template>
@@ -12,11 +11,11 @@
 <script>
 export default {
     name: "MultiplicationTemplate",
-    props: [],
+    props: ['count', 'addComponent'],
     data() {
         return {
-            number1: 0,
-            number2: 0,
+            number1: Math.floor(Math.random() * 10),
+            number2: Math.floor(Math.random() * 10),
             enteredNumber: 0,
             result: undefined,
             correct: false
@@ -35,9 +34,10 @@ export default {
             const vm = this;
             const calcResult = vm.number1 * vm.number2;
             if (vm.enteredNumber == calcResult) {
-                vm.correct = true
+                vm.correct = true;
+                this.addComponent();
             } else {
-                vm.correct = false
+                vm.correct = false;
             }
             console.log(vm.enteredNumber);
             console.log(vm.correct);
