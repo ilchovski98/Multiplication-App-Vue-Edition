@@ -1,34 +1,32 @@
 <template>
   <div id="app">
-    <navigation></navigation>
-    <div v-for="index in count" :key="index">
-      <timer #default="{stop, formattedTime }">
-        <multiplication-template :start="start" :stop="stop" :addComponent="addComponent" :count="count" class="space">
-        <template #timer>
-          {{ formattedTime }}
-        </template>
-      </multiplication-template>
-      </timer>
+
+    <div class="navigator">
+      <button class="btn btn-primary" @click="component='InfiniteGame'">Infinity</button>
+      <button class="btn btn-primary" @click="component='TrackGame'">For Time</button>
+      <button class="btn btn-primary">Double Digits</button>
     </div>
+
+    <component v-bind:is="component" :count="count" :addComponent="addComponent"></component>
+
   </div>
 </template>
 
 <script>
-import MultiplicationTemplate from './components/multiplicationTemplate'
-import Navigation from './components/navigation'
-import Timer from './components/timer'
+import InfiniteGame from './components/infiniteGame/index.vue'
+import TrackGame from './components/trackGame/index.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default {
   name: 'App',
   components: {
-    MultiplicationTemplate,
-    Navigation,
-    Timer
+    InfiniteGame,
+    TrackGame
   },
   data() {
     return {
-      count: 1
+      count: 1,
+      component: 'InfiniteGame'
     }
   },
   methods: {
@@ -51,5 +49,15 @@ export default {
 
 .space {
   margin-top: 20px;
+}
+
+.navigator {
+  background-color: grey;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>
