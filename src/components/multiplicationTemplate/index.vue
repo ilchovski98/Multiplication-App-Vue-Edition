@@ -1,6 +1,7 @@
 <template>
   <div id="main" :class="{green: correct, red: !correct}">
       <div id="content">
+          <slot name="timer"></slot>
           <p>{{ number1 }} X {{ number2 }} =</p>
           <input type="number" v-model="enteredNumber">
           <button id="btns" class="btn btn-primary" @click="check">Submit</button>
@@ -11,7 +12,7 @@
 <script>
 export default {
     name: "MultiplicationTemplate",
-    props: ['count', 'addComponent'],
+    props: ['count', 'addComponent', 'start', 'stop'],
     data() {
         return {
             number1: Math.floor(Math.random() * 10),
@@ -31,16 +32,16 @@ export default {
             
         },
         check() {
-            const vm = this;
-            const calcResult = vm.number1 * vm.number2;
-            if (vm.enteredNumber == calcResult) {
-                vm.correct = true;
+            const calcResult = this.number1 * this.number2;
+            if (this.enteredNumber == calcResult) {
+                this.correct = true;
+                this.stop();
                 this.addComponent();
             } else {
-                vm.correct = false;
+                this.correct = false;
             }
-            console.log(vm.enteredNumber);
-            console.log(vm.correct);
+            console.log(this.enteredNumber);
+            console.log(this.correct);
             
         }
     },
@@ -64,7 +65,6 @@ export default {
     display:inline-block;
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 #content {
@@ -93,7 +93,7 @@ input::-webkit-inner-spin-button {
 }
 
 #btns {
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .red {
