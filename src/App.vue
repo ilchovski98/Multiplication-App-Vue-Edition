@@ -1,9 +1,13 @@
 <template>
   <div id="app">
-
+    <header>
+      <template>
+        <h1>{{ title }}</h1>
+      </template>
+    </header>
     <div class="navigator">
-      <button class="btn btn-primary" @click="component='InfiniteGame'; count=1">Infinity</button>
-      <button class="btn btn-primary" @click="component='TrackGame'; count=1">For Time</button>
+      <button class="btn btn-primary" @click="component='InfiniteGame'; count=1; title='Infinity Mode'">Infinity</button>
+      <button class="btn btn-primary" @click="component='TrackGame'; count=1; title='Time Mode' ">For Time</button>
       <button class="btn btn-primary">Double Digits</button>
     </div>
 
@@ -15,18 +19,21 @@
 <script>
 import InfiniteGame from './components/infiniteGame/index.vue'
 import TrackGame from './components/trackGame/index.vue'
+import Header from './components/header/index.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default {
   name: 'App',
   components: {
     InfiniteGame,
-    TrackGame
+    TrackGame,
+    Header
   },
   data() {
     return {
       count: 1,
-      component: 'InfiniteGame'
+      component: 'InfiniteGame',
+      title: 'Infinity Mode'
     }
   },
   methods: {
