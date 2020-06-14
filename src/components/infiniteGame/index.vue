@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="index in count" :key="index">
-        <multiplication-template :addComponent="addComponent" :count="count" class="space"></multiplication-template>
+        <multiplication-template :stopTimerExistance="false" :addComponent="addComponent" :count="count" class="space"></multiplication-template>
     </div>
   </div>
 </template>

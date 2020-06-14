@@ -12,14 +12,15 @@
 <script>
 export default {
     name: "MultiplicationTemplate",
-    props: ['count', 'addComponent', 'start', 'stop'],
+    props: ['count', 'addComponent', 'start', 'stop', 'stopTimerExistance'],
     data() {
         return {
             number1: Math.floor(Math.random() * 10),
             number2: Math.floor(Math.random() * 10),
             enteredNumber: 0,
             result: undefined,
-            correct: false
+            correct: false,
+            
         }
     },
     methods: {
@@ -35,7 +36,9 @@ export default {
             const calcResult = this.number1 * this.number2;
             if (this.enteredNumber == calcResult) {
                 this.correct = true;
-                this.stop();
+                if (this.stopTimerExistance == true) {
+                    this.stop();
+                }
                 this.addComponent();
             } else {
                 this.correct = false;

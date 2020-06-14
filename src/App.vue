@@ -2,8 +2,8 @@
   <div id="app">
 
     <div class="navigator">
-      <button class="btn btn-primary" @click="component='InfiniteGame'">Infinity</button>
-      <button class="btn btn-primary" @click="component='TrackGame'">For Time</button>
+      <button class="btn btn-primary" @click="component='InfiniteGame'; count=1">Infinity</button>
+      <button class="btn btn-primary" @click="component='TrackGame'; count=1">For Time</button>
       <button class="btn btn-primary">Double Digits</button>
     </div>
 

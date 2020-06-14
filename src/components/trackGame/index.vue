@@ -2,7 +2,7 @@
   <div>
     <div v-for="index in count" :key="index">
       <timer #default="{stop, formattedTime }">
-        <multiplication-template :start="start" :stop="stop" :addComponent="addComponent" :count="count" class="space">
+        <multiplication-template :stopTimerExistance="true" :start="start" :stop="stop" :addComponent="addComponent" :count="count" class="space">
         <template #timer>
           {{ formattedTime }}
         </template>
