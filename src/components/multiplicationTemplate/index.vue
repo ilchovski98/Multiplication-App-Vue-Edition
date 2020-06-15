@@ -112,4 +112,11 @@ input::-webkit-inner-spin-button {
 .green {
     background-color: greenyellow;
 }
+
+.content {
+  background-image: url("../../assets/backgrounds/09.jpg");
+  background-size: cover;
+  height: 1000px;
+  opacity: 0.5;
+}
 </style>

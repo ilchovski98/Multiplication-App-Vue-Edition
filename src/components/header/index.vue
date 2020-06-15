@@ -1,6 +1,6 @@
 <template>
   <div>
-      <slot></slot>
+    <slot></slot>
   </div>
 </template>
 
@@ -10,12 +10,10 @@ export default {
     props: [],
     data() {
         return {
-            title: ''
         }
     }
 }
 </script>
 
 <style>
-
 </style>
