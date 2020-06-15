@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="index in count" :key="index">
-        <multiplication-template :stopTimerExistance="false" :addComponent="addComponent" :count="count" class="space"></multiplication-template>
+        <multiplication-template :index="index" :stopTimerExistance="false" :addComponent="addComponent" :count="count" class="space"></multiplication-template>
     </div>
   </div>
 </template>
@@ -12,9 +12,17 @@ import MultiplicationTemplate from '../multiplicationTemplate'
 export default {
     name: 'InfiniteGame',
     components: {
-        MultiplicationTemplate
+      MultiplicationTemplate
     },
-    props: ['count', 'addComponent']
+    props: ['count', 'addComponent'],
+    data() {
+      return {
+         
+      }
+    },
+    methods: {
+      
+    }
     
 }
 </script>

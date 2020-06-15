@@ -3,7 +3,7 @@
       <div id="content">
           <slot name="timer"></slot>
           <p>{{ number1 }} X {{ number2 }} =</p>
-          <input type="number" v-model="enteredNumber">
+          <input @keyup.enter="check" ref='inputField' type="number" v-model="enteredNumber">
           <button id="btns" class="btn btn-primary" @click="check">Submit</button>
       </div>
   </div>
@@ -12,7 +12,7 @@
 <script>
 export default {
     name: "MultiplicationTemplate",
-    props: ['count', 'addComponent', 'start', 'stop', 'stopTimerExistance'],
+    props: ['count', 'addComponent', 'start', 'stop', 'stopTimerExistance', 'index'],
     data() {
         return {
             number1: Math.floor(Math.random() * 10),
@@ -46,6 +46,9 @@ export default {
             console.log(this.enteredNumber);
             console.log(this.correct);
             
+        },
+        focused() {
+            this.$refs.inputField.focus();
         }
     },
     computed: {
@@ -54,6 +57,9 @@ export default {
                 backgroundColor: this
             }
         }
+    },
+    mounted() {
+        this.focused();
     }
 }
 </script>
