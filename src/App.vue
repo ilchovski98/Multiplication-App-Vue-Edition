@@ -110,9 +110,14 @@ export default {
 
 .backgroundsInfinity {
   background-image: url("./assets/backgrounds/09-opacity.jpg");
-  background-size: cover;
-  height: 100vh;
+  /* background-size: cover;
+  height: 300vh;
+  width: 100%; */
   box-shadow: 0px 6px 8px 3px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  height: 100vh;
+  
 }
 
 .backgroundsTrack {

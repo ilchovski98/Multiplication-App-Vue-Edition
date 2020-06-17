@@ -1,7 +1,8 @@
 <template>
   <div id="main" :class="{green: correct, red: !correct}">
       <div id="content">
-          <slot name="timer"></slot>
+          <p id="nomeration">{{ index }}</p>
+          <slot id="timer" name="timer"></slot>
           <p>{{ number1 }} X {{ number2 }} =</p>
           <input @keyup.enter="check" ref='inputField' type="number" v-model="enteredNumber">
           <button id="btns" class="btn btn-primary" @click="check">Submit</button>
@@ -88,6 +89,15 @@ p {
     margin-right: 10px;
 }
 
+#nomeration {
+    background-color: white;
+    border-radius: 200px;
+    padding: 0 10px 0 10px;
+    float: left;
+    margin-left: 60px;
+    margin-right: -30px;
+}
+
 input {
     display:inline-block;
     height: 28px;
@@ -111,12 +121,5 @@ input::-webkit-inner-spin-button {
 
 .green {
     background-color: greenyellow;
-}
-
-.content {
-  background-image: url("../../assets/backgrounds/09.jpg");
-  background-size: cover;
-  height: 1000px;
-  opacity: 0.5;
 }
 </style>
