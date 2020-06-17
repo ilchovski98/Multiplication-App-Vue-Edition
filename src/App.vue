@@ -55,7 +55,7 @@ export default {
       this.bodyClass = 'backgroundsTrack';
       this.title = 'Time Mode';
       this.count = 1;
-    }
+    },
   },
   
 }

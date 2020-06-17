@@ -10,7 +10,9 @@
       </timer>
     </div>
     <div id="finish" v-if="reachTenExercises == true">
-      <h1>Congradulations! You Finished!</h1>
+      <h1>Congradulations!</h1>
+      <h3>You solved 10 multiplication problems for 00:00!</h3>
+      <button class="btn btn-warning">Restart</button>
     </div>
   </div>
 </template>
@@ -38,7 +40,7 @@ export default {
         } else if (this.count == 10 && this.reachTenExercises == false) {
           this.reachTenExercises = true;
         }
-      }
+      },
     }
 }
 </script>
@@ -46,5 +48,19 @@ export default {
 <style>
 .timer {
   margin-right: 35px;
+}
+
+#finish {
+  background-color: rgb(114, 191, 236);
+  padding: 60px;
+  margin-top: 40px;
+}
+
+#finish h1 {
+  margin-bottom: 20px;
+}
+
+#finish h3 {
+  margin-bottom: 30px;
 }
 </style>

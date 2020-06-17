@@ -5,7 +5,7 @@
           <slot id="timer" name="timer"></slot>
           <p>{{ number1 }} X {{ number2 }} =</p>
           <input @keyup.enter="check" ref='inputField' type="number" v-model="enteredNumber">
-          <slot name="buttonForTimeMode"><button id="btns" class="btn btn-primary" @click="check">Submit</button></slot>
+          <button id="btns" class="btn btn-primary" @click="check">Submit</button>
       </div>
   </div>
 </template>
@@ -42,6 +42,7 @@ export default {
                         this.stop();
                     }
                     this.executed = true;
+
                     if (this.component == 'InfiniteGame') {
                         this.addComponent();
                     } else if (this.component == 'TrackGame') {
