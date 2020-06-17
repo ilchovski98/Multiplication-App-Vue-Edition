@@ -5,7 +5,7 @@
           <slot id="timer" name="timer"></slot>
           <p>{{ number1 }} X {{ number2 }} =</p>
           <input @keyup.enter="check" ref='inputField' type="number" v-model="enteredNumber">
-          <button id="btns" class="btn btn-primary" @click="check">Submit</button>
+          <slot name="buttonForTimeMode"><button id="btns" class="btn btn-primary" @click="check">Submit</button></slot>
       </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 export default {
     name: "MultiplicationTemplate",
-    props: ['count', 'addComponent', 'start', 'stop', 'stopTimerExistance', 'index'],
+    props: ['count', 'addComponent', 'start', 'stop', 'stopTimerExistance', 'index', 'limitOfTen', 'component'],
     data() {
         return {
             number1: Math.floor(Math.random() * 10),
@@ -21,7 +21,7 @@ export default {
             enteredNumber: 0,
             result: undefined,
             correct: false,
-            
+            executed: false
         }
     },
     methods: {
@@ -34,23 +34,31 @@ export default {
             
         },
         check() {
-            const calcResult = this.number1 * this.number2;
-            if (this.enteredNumber == calcResult) {
-                this.correct = true;
-                if (this.stopTimerExistance == true) {
-                    this.stop();
+            if (this.executed == false) {
+                const calcResult = this.number1 * this.number2;
+                if (this.enteredNumber == calcResult) {
+                    this.correct = true;
+                    if (this.stopTimerExistance == true) {
+                        this.stop();
+                    }
+                    this.executed = true;
+                    if (this.component == 'InfiniteGame') {
+                        this.addComponent();
+                    } else if (this.component == 'TrackGame') {
+                        this.limitOfTen();
+                    }
+                } else {
+                    this.correct = false;
                 }
-                this.addComponent();
-            } else {
-                this.correct = false;
+
             }
-            console.log(this.enteredNumber);
-            console.log(this.correct);
+            
             
         },
         focused() {
             this.$refs.inputField.focus();
-        }
+        },
+        
     },
     computed: {
         colorful() {

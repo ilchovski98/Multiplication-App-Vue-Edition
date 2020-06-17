@@ -11,7 +11,7 @@
     </div>
     
     <div :class="bodyClass">
-      <component  v-bind:is="component" :count="count" :addComponent="addComponent"></component>
+      <component  v-bind:is="component" :component="component" :count="count" :addComponent="addComponent"></component>
     </div>
 
   </div>

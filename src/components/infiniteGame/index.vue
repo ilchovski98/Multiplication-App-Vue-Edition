@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="index in count" :key="index">
-        <multiplication-template :index="index" :stopTimerExistance="false" :addComponent="addComponent" :count="count" class="space"></multiplication-template>
+        <multiplication-template :component="component" :index="index" :stopTimerExistance="false" :addComponent="addComponent" :count="count" class="space"></multiplication-template>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     components: {
       MultiplicationTemplate
     },
-    props: ['count', 'addComponent'],
+    props: ['count', 'addComponent', 'component'],
     data() {
       return {
          
