@@ -18,7 +18,7 @@ export default {
         return {
             number1: Math.floor(Math.random() * 10),
             number2: Math.floor(Math.random() * 10),
-            enteredNumber: 0,
+            enteredNumber: undefined,
             result: undefined,
             correct: false,
             executed: false
