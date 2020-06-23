@@ -1,5 +1,7 @@
 # multiplication-project
 
+This project allows you to practice your multiplication skills. Currently there are two available modes: Infinite mode and Time mode where you need to complete 10 exercises and see for what time you managed to finish them.
+
 ## Project setup
 ```
 yarn install
